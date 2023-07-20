@@ -197,11 +197,13 @@ Flow control functions
       -  Tests if signal is green
     * -  IFRE( id, value )
       -  | Tests if a rotary encoder is at the specified position
-         | |NOT-IN-PROD-VERSION|
+         | |AVAILABLE IN VERSION 5.0 RELEASE|
     * -  ELSE
       -  Provides alternative logic to any IF related command returning False
     * -  ENDIF
       -  Required to end an IF/IFNOT/etc (Used in all IF.. functions)
+    * -  IFLOCO(loco_id )
+      -  In an EXRAIL AUTOMATION sequence the IFLOCO(id) offers branch or alternate or choice of execution paths
 
 |
 
@@ -275,10 +277,10 @@ EX-RAIL functions
     * -  PARSE ( command_string)
       -  | Processes the command_string as if it had been sent in by a throttle or typed into the USB serial e.g. PARSE("<1 JOIN>")
          | This is much less efficient than using an equivalent EXRAIL command. So don't use it for anything that EX-RAIL can do directly.
-         | |NOT-IN-PROD-VERSION|     
+         | |AVAILABLE IN VERSION 5.0 RELEASE|     
     * -  DRIVE( analog_pin )
       -  | ***Under Construction*** Not complete, DO NOT USE 
-         | |NOT-IN-PROD-VERSION|
+         | |AVAILABLE IN VERSION 5.0 RELEASE|
 
 |
 
@@ -366,10 +368,13 @@ Event handlers
       -  Event handler for linear DCC accessory packet value 0
     * -  ONCHANGE( id )
       -  | Event handler for a sensor changing state
-         | |NOT-IN-PROD-VERSION|
+         | |AVAILABLE IN VERSION 5.0 RELEASE|
     * -  ONCLOCKTIME( hh, mm )
       -  | Event handler for an event based on a time generated using EX-FastClock
-         | |NOT-IN-PROD-VERSION|
+         | |AVAILABLE IN VERSION 5.0 RELEASE|
+    * -  ONRED(signal_id) 
+    * -  ONAMBER(signal_id) 
+    * -  ONGREEN(signal_id) 
   
 
 |
@@ -420,3 +425,5 @@ Action output functions
       -  Sends a DCC accessory packet with value 0
     * -  DEACTIVATEL( addr )
       -  Sends a DCC accessory packet with value 0 to a linear address
+    * -  VIRTUAL_SIGNAL( id)
+      -  Defines a virtural signal that is visable to throttles for setting real signal color schemes
