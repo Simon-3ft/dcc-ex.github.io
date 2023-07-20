@@ -245,8 +245,12 @@ Command Station functions
       -  Writes direct to Serial2
     * -  SERIAL3( msg )
       -  Writes direct to Serial3
-
-|
+    * -  SERIAL4( msg )
+      -  Certain Nucleo models have additional Morpho Serial pins available, refer to "Hardware setup notes for Nucleo EX-CommandStation"
+    * -  SERIAL5( msg )
+      -  Certain Nucleo models have additional Morpho Serial pins available, refer to "Hardware setup notes for Nucleo EX-CommandStation"
+    * -  SERIAL6( msg )
+      -  Certain Nucleo models have additional Morpho Serial pins available, refer to "Hardware setup notes for Nucleo EX-CommandStation"
 
 EX-RAIL functions
 ^^^^^^^^^^^^^^^^^
@@ -274,6 +278,8 @@ EX-RAIL functions
       -  Start a new task send a given loco along given route/sequence
     * -  AUTOSTART
       -  A task is automatically started at this point during startup
+    * -  KILLALL
+      -  The command to stop all EXRAIL running automations, this command can be made available in a wifi throttle
     * -  PARSE ( command_string)
       -  | Processes the command_string as if it had been sent in by a throttle or typed into the USB serial e.g. PARSE("<1 JOIN>")
          | This is much less efficient than using an equivalent EXRAIL command. So don't use it for anything that EX-RAIL can do directly.
@@ -281,7 +287,9 @@ EX-RAIL functions
     * -  DRIVE( analog_pin )
       -  | ***Under Construction*** Not complete, DO NOT USE 
          | |AVAILABLE IN VERSION 5.0 RELEASE|
-
+    * -  SET_TRACK( track, mode )
+      -  | TRACK MANAGER command to set an isolated track to one of 5 modes, [MAIN, PROG, DC, DCX, OFF]
+         | |AVAILABLE IN VERSION 5.0 RELEASE|
 |
 
 Loco DCC functions
@@ -369,13 +377,21 @@ Event handlers
     * -  ONCHANGE( id )
       -  | Event handler for a sensor changing state
          | |AVAILABLE IN VERSION 5.0 RELEASE|
+    * -  ONTIME( value )
+      -  | Event handler for an event based on current time
+         | |AVAILABLE IN VERSION 5.0 RELEASE|        
     * -  ONCLOCKTIME( hh, mm )
       -  | Event handler for an event based on a time generated using EX-FastClock
          | |AVAILABLE IN VERSION 5.0 RELEASE|
+    * -  ONCLOCKMINS( mins )
+      -  | Event handler for an event based on a time generated using EX-FastClock
+         | |AVAILABLE IN VERSION 5.0 RELEASE|        
     * -  ONRED(signal_id) 
+      -  Event handler for a signal changing state
     * -  ONAMBER(signal_id) 
+      -  Event handler for a signal changing state
     * -  ONGREEN(signal_id) 
-  
+      -  Event handler for a signal changing state
 
 |
 
@@ -427,3 +443,5 @@ Action output functions
       -  Sends a DCC accessory packet with value 0 to a linear address
     * -  VIRTUAL_SIGNAL( id)
       -  Defines a virtural signal that is visable to throttles for setting real signal color schemes
+    * -  DCC_SIGNAL( id, addr, sub_addr )
+      -  Defines a signal object which can be later set to RED/AMBER/GREEN and tested for state
