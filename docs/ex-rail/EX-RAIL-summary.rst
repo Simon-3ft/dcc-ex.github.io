@@ -54,7 +54,7 @@ Command Summary
 Diagnostics & Control
 ---------------------
 
-There are some diagnostic and control commands added to the <tag> language normally used to control the Command Station over USB, WiFi or Ethernet. You can enter these Commands < > through both the Arduino IDE Serial Monitor and the |JMRI| Send DCC++ Command pane.
+There are some diagnostic and control commands added to the <tag> language normally used to control the Command Station over USB, WiFi or Ethernet. You can enter these Commands < > through both the Arduino IDE Serial Monitor and the |JMRI| Send DCC++ Command pane. Additional commands are listed in the REFERENCE Section.
 
 .. list-table::
     :widths: 30 70
@@ -84,7 +84,7 @@ There are some diagnostic and control commands added to the <tag> language norma
     * -  </ UNLATCH sensor_id>
       -  Unlock sensor, returning to current external state
     * -  </ ROUTES>
-      -  ***Under Construction*** Returns the Routes & Automations control list in WiThrottle format. JMRI integration only!
+      -  Returns the Routes & Automations control list in WiThrottle format. JMRI integration only!
     * -  </ RED signal_id>
       -  Set the specified signal red
     * -  </ AMBER signal_id>
@@ -196,8 +196,7 @@ Flow control functions
     * -  IFGREEN( signal_id )
       -  Tests if signal is green
     * -  IFRE( id, value )
-      -  | Tests if a rotary encoder is at the specified position
-         | |AVAILABLE IN VERSION 5.0 RELEASE|
+      -  Tests if a rotary encoder is at the specified position
     * -  ELSE
       -  Provides alternative logic to any IF related command returning False
     * -  ENDIF
@@ -205,7 +204,6 @@ Flow control functions
     * -  IFLOCO(loco_id )
       -  In an EXRAIL AUTOMATION sequence the IFLOCO(id) offers branch or alternate or choice of execution paths
 
-|
 
 Command Station functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -219,10 +217,8 @@ Command Station functions
       -  Description
     * -  POWERON
       -  | Power on track, will UNJOIN programming from main
-         | |NOT-IN-PROD-VERSION|
     * -  POWEROFF
       -  | Power off track
-         | |NOT-IN-PROD-VERSION|
     * -  JOIN
       -  Joins PROG and MAIN track outputs to send the same MAIN DCC signal on both tracks
     * -  UNJOIN
@@ -251,6 +247,7 @@ Command Station functions
       -  Certain Nucleo models have additional Morpho Serial pins available, refer to "Hardware setup notes for Nucleo EX-CommandStation"
     * -  SERIAL6( msg )
       -  Certain Nucleo models have additional Morpho Serial pins available, refer to "Hardware setup notes for Nucleo EX-CommandStation"
+
 
 EX-RAIL functions
 ^^^^^^^^^^^^^^^^^
@@ -283,14 +280,11 @@ EX-RAIL functions
     * -  PARSE ( command_string)
       -  | Processes the command_string as if it had been sent in by a throttle or typed into the USB serial e.g. PARSE("<1 JOIN>")
          | This is much less efficient than using an equivalent EXRAIL command. So don't use it for anything that EX-RAIL can do directly.
-         | |AVAILABLE IN VERSION 5.0 RELEASE|     
     * -  DRIVE( analog_pin )
       -  | ***Under Construction*** Not complete, DO NOT USE 
-         | |AVAILABLE IN VERSION 5.0 RELEASE|
     * -  SET_TRACK( track, mode )
       -  | TRACK MANAGER command to set an isolated track to one of 5 modes, [MAIN, PROG, DC, DCX, OFF]
-         | |AVAILABLE IN VERSION 5.0 RELEASE|
-|
+
 
 Loco DCC functions
 ^^^^^^^^^^^^^^^^^^
@@ -321,7 +315,6 @@ Loco DCC functions
     * -  INVERT_DIRECTION
       -  Switches FWD/REV meaning for this loco
 
-|
 
 Sensor input
 ^^^^^^^^^^^^
@@ -349,8 +342,7 @@ Sensor input
       -  Remove LATCH on sensor
     * -  WAITFOR( pin )
       -  Wait for servo to complete movement
-  
-|
+
 
 Event handlers
 ^^^^^^^^^^^^^^
@@ -375,17 +367,13 @@ Event handlers
     * -  ONDEACTIVATEL( linear )
       -  Event handler for linear DCC accessory packet value 0
     * -  ONCHANGE( id )
-      -  | Event handler for a sensor changing state
-         | |AVAILABLE IN VERSION 5.0 RELEASE|
+      -  Event handler for a sensor changing state
     * -  ONTIME( value )
-      -  | Event handler for an event based on current time
-         | |AVAILABLE IN VERSION 5.0 RELEASE|        
+      -  Event handler for an event based on current time
     * -  ONCLOCKTIME( hh, mm )
-      -  | Event handler for an event based on a time generated using EX-FastClock
-         | |AVAILABLE IN VERSION 5.0 RELEASE|
+      -  Event handler for an event based on a time generated using EX-FastClock
     * -  ONCLOCKMINS( mins )
-      -  | Event handler for an event based on a time generated using EX-FastClock
-         | |AVAILABLE IN VERSION 5.0 RELEASE|        
+      -  Event handler for an event based on a time generated using EX-FastClock
     * -  ONRED(signal_id) 
       -  Event handler for a signal changing state
     * -  ONAMBER(signal_id) 
@@ -393,7 +381,6 @@ Event handlers
     * -  ONGREEN(signal_id) 
       -  Event handler for a signal changing state
 
-|
 
 Action output functions 
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -445,3 +432,5 @@ Action output functions
       -  Defines a virtural signal that is visable to throttles for setting real signal color schemes
     * -  DCC_SIGNAL( id, addr, sub_addr )
       -  Defines a signal object which can be later set to RED/AMBER/GREEN and tested for state
+
+  
